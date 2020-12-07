@@ -1,1 +1,3 @@
-# Take notes for review
+# Recording front-end learning notes
+
+
