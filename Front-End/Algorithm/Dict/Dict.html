@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    function Dictionary(){
+      // 字典属性
+      this.items = {};
+
+      // set(key,value)：往字典添加键值对
+      Dictionary.prototype.set = function(key,value){
+        this.items[key + ''] = value;
+        return true;
+      }
+
+      // has(key)：判断字典中是否含有某个key
+      Dictionary.prototype.has = function(key){
+        return this.items.hasOwnProperty(key + '');
+      }
+
+      // remove(key)：根据key从字典中移除键值对
+      Dictionary.prototype.remove = function(key){
+        if(!this.has(key))
+          return false;
+        delete this.items[key + ''];
+        return true;
+      }
+
+      // get(key)：根据key去获取value
+      Dictionary.prototype.get = function(key){
+        if(!this.has(key))
+          return undefined;
+        return this.items[key + ''];
+      }
+
+      // keys()：以数组的形式返回所有的keys
+      Dictionary.prototype.keys = function(){
+        return Object.keys(this.items);
+      }
+    }
+    
+    // 测试代码
+    var dictionary = new Dictionary();
+    console.log(dictionary.set("name","hao"));
+    console.log(dictionary.set("age",18));
+    console.log(dictionary.keys());
+    
+    console.log(dictionary.get("age"));
+    console.log(dictionary.remove("name"));
+    console.log(dictionary.get("name"));
+    console.log(dictionary.keys());
+
+  </script>
+
+</body>
+</html>

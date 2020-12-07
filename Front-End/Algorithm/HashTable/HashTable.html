@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    // 基于数组来模拟链地址法 -> 实现的哈希表
+    /*
+      [ 
+        [
+          [ key1,value1 ]
+        ],
+        [
+          [ key2,value2 ]
+        ]... 
+      ]
+    */
+    function HashTable(){
+
+      this.storage  = [];
+      this.count = 0;// 已存放的元素个数
+      this.limit = 7;// 可存储的元素个数
+
+      // resize(newLimit)：
+      /*
+        loadFactor：加载因子 > 0.75进行扩容(java)
+        扩容后需要重新获取hashCode进行元素插入哈希表
+      */
+      HashTable.prototype.resize = function(newLimit){
+        // 1、存储旧哈希表
+        var oldStorage = this.storage;
+
+        // 2、重置哈希表
+        this.storage = [];
+        this.count = 0;
+        this.limit = newLimit;
+
+        // 3、将旧哈希表重新插入新的哈希表
+        var len = oldStorage.length;
+        for(var i = 0; i < len; i ++){
+          var buckey = oldStorage[i];
+
+          if(!buckey){
+            continue;
+          }else{
+            var b_len = buckey.length;
+            for(var j = 0; j < b_len; j ++){
+              var tuple = buckey[j];
+              this.insert(tuple[0],tuple[1]);
+            }
+          }
+
+        }
+
+        return this.storage;
+      }
+
+      // hashFunc(key,this.limit)：0 ~ limit - 1
+      HashTable.prototype.hashFunc = function(key,limit){
+        var hashCode = 0;
+
+        // 2、霍纳算法
+        for(var i = 0; i < key.length; i ++){
+          hashCode = 37 * hashCode + key.charCodeAt(i);
+        }
+
+        var index = hashCode % limit;
+
+        return index;
+      }
+      
+      // insert(key,value)：
+      /* 
+        1、已存放key，修改value
+        2、未存放key，插入[key,value]
+      */
+      HashTable.prototype.insert = function(key,value){
+        // 1、获取index
+        var index = this.hashFunc(key,this.limit);
+
+        // 2、判断是否存在桶
+        var buckey = this.storage[index];
+        // buckey为undefined，没桶就创建桶
+        if(!buckey){
+          buckey = [];
+          this.storage[index] = buckey;
+        }
+        
+        var len = buckey.length;
+        // 修改
+        for(var i = 0; i < len; i ++){
+          var tuple = buckey[i];
+          if(tuple[0] == key){
+            tuple[1] = value;
+            return true;
+          }
+        }
+        // 插入
+        buckey.push([key,value]);
+        this.count ++;
+
+        // 判断是否需要扩容操作, 加载因子 > 0.75进行扩容(java)
+        if(this.count > this.limit * 0.75){
+          var loadFactor = this.getPrime(this.limit * 2);
+          console.log(this.resize(loadFactor));
+        }
+
+        return true;
+      }
+
+      // get(key)：根据key获取value
+      HashTable.prototype.get = function(key){
+        // 1、获取hashCode
+        var index = this.hashFunc(key,this.limit);
+
+        var buckey = this.storage[index];
+        // console.log(index,buckey);
+        // 2、判断是否存在桶
+        if(!buckey){
+          return null;
+        }else{
+          var len = buckey.length;
+          for(var i = 0; i < len; i ++){
+            var tuple = buckey[i];
+            if(key === tuple[0]){
+              return tuple[1];
+            }
+          }
+        }
+           
+        return null;
+      }
+
+      // remove(key)：根据key删除[key,value]
+      HashTable.prototype.remove = function(key){
+        // 1、获取hashCode
+        var index = this.hashFunc(key,this.limit);
+
+        var buckey = this.storage[index];
+        
+        // 2、判断桶是否存在
+        if(!buckey){
+          // 不存在，返回null
+          return false;
+        }else{
+          // 存在，遍历数组找key
+          var len = buckey.length;
+          for(var i = 0; i < len; i ++){
+            var tuple = buckey[i];
+            if(key === tuple[0]){
+              buckey.splice(i,1);
+              this.count --;
+
+              // 判断是否需要缩小,最小是7
+              if(this.limit > 7 && this.count < this.limit * 0.25){
+                var loadFactor = this.getPrime(Math.floor(this.limit / 2));
+                console.log(this.resize(loadFactor));
+              }
+
+              return tuple[1];
+            }
+          }
+        }
+
+        return false;
+      }
+
+      // isEmpty()
+      HashTable.prototype.isEmpty = function(){
+        return this.count === 0;
+      }
+
+      // size()
+      HashTable.prototype.size = function(){
+        return this.count;
+      }
+
+      // isPrime(num)：判断num是否为质数
+      HashTable.prototype.isPrime = function(num){
+        if(num === 1)
+        return false;
+        var sqrt_num = parseInt(Math.sqrt(num));
+        for(var i = 2; i <= sqrt_num; i ++){
+          if(num % i === 0)
+            return false;
+        }
+        return true;
+      }
+
+      // getPrime(num)：根据num来获取附近的质数
+      HashTable.prototype.getPrime = function(num){
+        while(!this.isPrime(num)){
+          num ++;
+        }
+        return num;
+      }
+    }
+
+    // 测试代码
+    var hashTable = new HashTable();
+    console.log(hashTable.insert("ac",97));
+    console.log(hashTable.insert("b",97));
+    console.log(hashTable.insert("a",64));
+    console.log(hashTable.get("a"));
+    console.log(hashTable.remove("a"));
+
+    // 测试扩容
+    hashTable.insert("afs",65);
+    hashTable.insert("akl",23);
+    hashTable.insert("amk",49);
+    hashTable.insert("fd",46);
+
+
+
+    // isPrime(num)：只能被1和本身整除
+    // 1、判断 2 ~ n-1
+    function isPrime(num){
+      if(num == 1) 
+        return false;
+      for(var i = 2; i < num; i ++){
+        if(num % i === 0)
+          return false;
+      }
+      return true;
+    }
+    
+    // 2、n进行因式分解,一个小于sqrt(n),一个大于sqrt(n)
+    //    2 ~ parseInt(sqrt(n))
+    function gIsPrime(num){
+      if(num === 1)
+        return false;
+      var sqrt_num = parseInt(Math.sqrt(num));
+      for(var i = 2; i <= sqrt_num; i ++){
+        if(num % i === 0)
+          return false;
+      }
+      return true;
+    }
+
+  </script>
+
+</body>
+</html>

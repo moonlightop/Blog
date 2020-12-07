@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    /*
+      1、节点是红色或黑色 
+      2、根节点是黑色
+      3、每个叶节点都是黑色的空节点
+      4、每个红色节点的两个子节点都是黑色（从叶子节点到根节点的路径上不能出现两个连续的红色节点）
+      5、从任一个节点到其每个叶子（它的子树下的每一个叶节点）的所有路径斗包含相同数目的黑色节点
+      结论：从根到叶子的最长路径，不会超过最短路径的两倍长（相对平衡的二叉树）
+    */
+
+    /* 
+    
+      插入新节点时（红色较好调整，黑色较难调整）,
+      可以通过：换色、左旋转、右旋转,使它继续符合五条规则
+    
+      左旋转：逆时针旋转，左子树向左平移
+      右旋转：顺时针旋转，右子树向右平移
+
+      newNode：插入的新节点
+      parent：newNode的父节点
+      uncle：parent的兄弟节点
+      grandParent：parent的父节点
+      一、 空树：将newNode改成黑色
+      二、 parent是黑色：直接插入，newNode扩展两个黑色的空节点
+      三、 parent、uncle为红色，此时grandParent必为黑色
+        -> parent、uncle变为黑色，grandParent变为红色
+
+      四、 parent为红色，uncle为黑、此时grandParent必为黑色
+        1、newNode是parent的左子节点
+        -> parent变为黑色、grandParent变为红色、以grandParent为根，右旋转
+        2、newNode是parent的右子节点
+        -> 以P为根，左旋转，再把P作为新插入的红色节点（四-1）
+           newNode变为黑色、grandParent变为红色、以grandParent为根，右旋转
+
+    */
+
+
+
+  </script>
+
+</body>
+</html>

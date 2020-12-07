@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>栈的封装</title>
+</head>
+<body>
+    
+
+    <script>
+        // methods：Object中的方法
+        // function：函数
+        function Stack(){
+            this.items = [];
+
+            // push(Element)：将元素压入栈
+            Stack.prototype.push = function(Element){
+                this.items.push(Element);
+            }
+            // pop()：取出栈顶元素
+            Stack.prototype.pop = function(){
+                return this.items.pop();
+            }
+            
+            // peek()：查看栈顶元素
+            Stack.prototype.peek = function(){
+                return this.items[this.items.length - 1];
+            }            
+            // isEmpty()：判断栈是否空
+            Stack.prototype.isEmpty = function(){
+                return this.items.length === 0;
+            }
+            
+            // size()：获取栈中元素个数
+            Stack.prototype.size = function(){
+                return this.items.length;
+            }            
+            // toString()：将栈结构用字符形式表示
+            Stack.prototype.toString = function(){
+                var resultString = '';
+                for(var i = 0; i < this.items.length; i ++){
+                    resultString += this.items[i] + '';
+                }    
+                return resultString;
+            }
+        }
+
+        var s = new Stack();
+
+        // 1、DEC -> BIN
+        function DEC_TO_BIN(Num){
+            var n;
+            while(Num != 0){
+                n = Num % 2;
+                // Math.floor向下取整
+                Num = Math.floor(Num / 2);
+                s.push(n);
+            }
+            var result = '';
+            while(!s.isEmpty()){
+                result += s.pop();
+            }
+            return result;
+        }   
+        console.log(DEC_TO_BIN(68));     
+/*
+        var arr = [1,2,3,4,5,6,7,8,9];
+        push(Element)
+        pop()
+
+        unshift(Element)
+        shift()
+
+        reverse()
+        splice(从第几位前面的光标开始,截取的长度,添加的数据)
+        sort(function(a,b){
+            // if return > 0 then b跟a换位置，升序
+            // if return <= 0 then 不变 
+            return a - b;
+        })
+
+        concat()
+        toString()
+        slice(光标从该位开始,截取到此位)
+        [].slice.call(类数组,0)// 将类数组转化为数组
+        join(字符串)：将数组按字符串进行连接
+        join()：用,
+        split(字符串)：按照字符串进行拆分
+        split()：转数组
+*/
+
+    </script>
+</body>
+</html>
