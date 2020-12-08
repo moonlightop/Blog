@@ -1,6 +1,7 @@
 # 参考
 
 * CSS参考手册：[http://css.cuishifeng.cn/columns.html](http://css.cuishifeng.cn/columns.html)
+* W3C：[https://www.w3.org/TR/css-backgrounds-3/](https://www.w3.org/TR/css-backgrounds-3/)
 * MDN：[https://developer.mozilla.org/es/docs/Web/CSS/linear-gradient()](https://developer.mozilla.org/es/docs/Web/CSS/linear-gradient())
 * caniuse：[https://www.caniuse.com/](https://www.caniuse.com/)
 * github案例练习：[https://chokcoco.github.io/CSS-Inspiration/#/./layout/flex-waterfalls-flow](https://chokcoco.github.io/CSS-Inspiration/#/./layout/flex-waterfalls-flow)
@@ -316,6 +317,22 @@ height: 0;
 */
 }
 ```
+* 那为何给一个矩形元素设置border-radius:100%和border-radius:50%的时候都是呈现出来一个椭圆呢？
+    * when the sum of any two adjacent border radii exceeds the size of the border box,UAs must proportionally reduce the used values of all border radii until none of them overlap
+    * 按我的理解就是：当任意两个相邻的切圆的半径之和超过边界框的大小时，那么这两个切圆就会按我们设置border-radius时的比例去缩减它，直到不会这两个圆的半径之和<=边界框的大小
+* 因此当我们设置border-radius: 100%,很明显相邻的两个切圆的半径之和超过边界框的大小，因此按照它们的比例1 : 1 : 1 :1进行缩小，一直到border-radius:50%，就刚刚好等于边界框的大小，就停止了。所以呈现出来的效果和我们设置的border-radius:50%是一样的
+    * 案例如下：300px * 200px的矩形，设置了border-top-left-radius：200px 100px，border-top-right-radius：100px 50px，水平方向的半径之和 200px + 100px <= 300px，垂直方向的半径之和 50px + 100px <= 200px，因此不用按比例收缩
+
+![图片](https://uploader.shimo.im/f/B9ZEfhYRHwRQyr5T.png!thumbnail?fileGuid=9QTKdXDv8RQKrcRP)
+
+![图片](https://uploader.shimo.im/f/VJcMqc5vJ1zMTXeb.png!thumbnail?fileGuid=9QTKdXDv8RQKrcRP)
+
+    * 当我们将border-top-left-radius改为 300px 100px时，水平方向半径和 300px + 100px > 300px，因此按原有比例缩放，也就是变成一个 300px * 0.75 = 225px ，另一个100px * 0.25 = 75px
+
+![图片](https://uploader.shimo.im/f/Gx2eoTYK2OBR7Hdx.png!thumbnail?fileGuid=9QTKdXDv8RQKrcRP)
+
+![图片](https://uploader.shimo.im/f/cMCL1OsShdUxbHOI.png!thumbnail?fileGuid=9QTKdXDv8RQKrcRP)
+
 ### border-image
 
 强烈推荐参考博文：[https://www.cnblogs.com/aishangliming/p/6032810.html](https://www.cnblogs.com/aishangliming/p/6032810.html)
@@ -437,6 +454,9 @@ height: 0;
 * 参考博文：[https://blog.csdn.net/three_bird/article/details/51361065](https://blog.csdn.net/three_bird/article/details/51361065)
 >**参数**
 >渐变方向 | deg（默认180deg，to bottom）颜色1  starting point1，颜色2  starting point2（ending point1），......
+
+![图片](https://uploader.shimo.im/f/PXIS8uJIfQ1KS3t2.png!thumbnail?fileGuid=9QTKdXDv8RQKrcRP)
+
 * 第一个颜色的位置设置为n%，第二个颜色的位置设置为m%。则浏览器会将0%-n%的范围设置为第一个颜色的纯色，n%-m%的范围设置为第一个颜色到第二个颜色的过渡，m%-100%的范围设置为第二个颜色的纯色
 * 每一个渐变的区域都对应这样一个图，起始颜色由starting point沿着此条直线走到ending point，在starting~ending之间，是前后两种颜色的过渡
 
@@ -1662,13 +1682,10 @@ scale() + scalez
 * 不影响页面的布局，不需要重新计算元素的位置、尺寸，直接为该元素绘制新的样式
 ## screen&px（1px问题）
 
->参考博文：[https://juejin.cn/post/6901565362693734407](https://juejin.cn/post/6901565362693734407)
 >强烈推荐DPI和PPI：[https://segmentfault.com/a/1190000016818984](https://segmentfault.com/a/1190000016818984)
->[https://www.zcool.com.cn/article/ZMzc4NTg0.html](https://www.zcool.com.cn/article/ZMzc4NTg0.html)
-* pt是物理单位，**1inch = 72pt = 25.4mm**，px是屏幕的基本单位
-* **px = inch * dpi**
-    * px是相对单位，且是逻辑像素（DIP）
-    * 物理像素（DP）是组成显示屏的基本单位，出厂时固定
+* px是屏幕的基本单位，**px = inch * dpi**
+    * px是相对单位，且是逻辑像素（DIP，CSS像素）
+    * 物理像素（DP）是组成显示屏的基本单位，出厂时固定，PPI也是出厂就固定的！
         * iPhone(6~7)的宽为2.3 inch，高为4.1 inch，屏幕的尺寸为4.7 inch（对角线），同时它的屏幕每行有750个px，每竖有1334个px
     * 设备像素比（DPR） = 物理像素（DP） /  逻辑像素（DIP）
 * 其实DPI和PPI的意思是一样的，只不过适用场景不同，性能评价的场景也不同
@@ -1676,11 +1693,20 @@ scale() + scalez
         * 最早用来描述打印机的性能，一台打印机最多能用多少墨点来打印一寸的内容
     * PPI（图像分辨率）
         * 屏幕每英寸有多少个物理像素（屏幕的像素密度），1inch=2.54cm
+            * PPI = 2，水平每英寸 2个，垂直每英寸 2个，2 * 2
             * 屏幕分辨率：1920 * 1080，设备尺寸：5.5inch（屏幕对角线距离）
 >斜边像素大小^2 = 1920^2 + 1080^2;
 >PPI = 斜边像素大小 / 5.5inch
->**解决方案：**[https://segmentfault.com/a/1190000037790305](https://segmentfault.com/a/1190000037790305)
->[https://segmentfault.com/a/1190000016445815?utm_source=sf-related](https://segmentfault.com/a/1190000016445815?utm_source=sf-related)
->[https://zhuanlan.zhihu.com/p/113391811](https://zhuanlan.zhihu.com/p/113391811)
->**最干的干货：**[https://www.cnblogs.com/zaoa/p/8630393.html](https://www.cnblogs.com/zaoa/p/8630393.html)
-* 手提，台式用ppi来衡量，但手机端适配的dpi不太懂
+* 我们一般的设备都是物理分辨率(px)和逻辑分辨率(px)刚刚适配好的，比如我的电脑物理分辨率为 1920 * 1080，而逻辑分辨率也是1920 * 1080，此时电脑显示的效果最好
+    * 而我们可以调节逻辑分辨率，假设我将它调为800 * 600，那么电脑就会在中间分配800 * 600个物理像素点给我们，然后两边没用到的物理像素点就用黑色填充，那么此时对于这个区域来说，它的ppi降低了，因此就变得没那么清晰了，而且因为逻辑分辨率降低了，又根据dpr = 物理像素 / 逻辑像素，我们就可以直到1个逻辑像素点，相比原来，需要更多的物理像素点来表示，因此我们就能看到图标变大了
+    * 好比如：1px需要1个物理像素点表示，但现在变为1px需要两个物理像素点表示了，就变大了
+
+![图片](https://uploader.shimo.im/f/hTUyvfK806wqpyMl.png!thumbnail?fileGuid=9QTKdXDv8RQKrcRP)
+
+![图片](https://uploader.shimo.im/f/mVukVthV6zrsHpr0.png!thumbnail?fileGuid=9QTKdXDv8RQKrcRP)
+
+>**解决方案：**
+>[https://guides.lib.umich.edu/c.php?g=282942&p=1885350](https://guides.lib.umich.edu/c.php?g=282942&p=1885350)
+>[https://www.jianshu.com/p/e8d5068c7cd9](https://www.jianshu.com/p/e8d5068c7cd9)
+>[https://99designs.hk/blog/tips/ppi-vs-dpi-whats-the-difference/#comment-19](https://99designs.hk/blog/tips/ppi-vs-dpi-whats-the-difference/#comment-19)
+>[https://blog.fluidui.com/designing-for-mobile-101-pixels-points-and-resolutions/](https://blog.fluidui.com/designing-for-mobile-101-pixels-points-and-resolutions/)
