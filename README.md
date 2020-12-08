@@ -1,10 +1,11 @@
 # Blog
 - Record the growth of learning
 ## Front-END
-- Front-END-Study-Note
+- front end study note
 ## BACK-END
 - waiting
   - Now,I just learning Node.
+  - I will study JAVA in furture.
 # Reading Book
 - CSS世界（reading）
 - CSS选择器世界
