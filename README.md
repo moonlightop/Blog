@@ -3,4 +3,5 @@
 ## Front-END
 - @zhuzhenhao upload Front-END-Study-Note
 ## BACK-END
-- @laikang upload BACK-END-Study-Note(JAVA)
+- waiting
+  - Now,I just learning Node.
