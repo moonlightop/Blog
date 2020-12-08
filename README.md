@@ -1,8 +1,8 @@
 # Blog
 - Record the growth of learning
-## Front-END
+## Front End
 - front end study note
-## BACK-END
+## Back End
 - waiting
   - Now,I just learning Node.
   - I will study JAVA in furture.
