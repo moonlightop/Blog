@@ -578,7 +578,6 @@ MyPromise.allSettled = function(promises) {
 
     let len = promises.length
     let reject_count = 0 // 统计promises中Promise失败的数量
-    let resolve_count = 0 // 统计promises中Promise成功的数量
     let index = -1 // 记录第一个非Promsie的位置
     let errors = []
     for(let i = 0; i < len; i ++) {
@@ -601,7 +600,6 @@ MyPromise.allSettled = function(promises) {
       for(let j = 0; j < len; j ++) {
         if(promises[j] instanceof MyPromise) {
           promises[j].then(v => {
-            resolve_count ++
             resolve(v)
           },r => {
             reject_count ++
@@ -772,8 +770,14 @@ MyPromise.allSettled = function(promises) {
 ## END
 * 从一开始跟着封装到现在能独立封装出一个比较完善的Promise，途中遇到了很多问题，但经过逛各种论坛、google、github终于将它解决了，然后就想通过博客文章来分享以下
   * 如果上文有错误的地方，还望读者能指出 
-* 本文github源码
+* 推荐一个[尚硅谷的axios源码阅读](https://www.bilibili.com/video/BV1NJ41197u6?from=search&seid=13110308114654066864)（了解axios的一个运行流程）
+* [本文github源码](https://github.com/moonlightop/Blog/tree/main/Front-End/Promise)
 * onProcess画的思维导图
+
+
+![](https://imgkr2.cn-bj.ufileos.com/5181891c-5c01-4d4f-b226-ffc72041e8ce.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=%252BYzVMvL9k1FezyRG8Y8AczwD2F4%253D&Expires=1608956443)
+
+
 * 排版工具：[mdnice](https://www.mdnice.com/)
 
 ## 参考
