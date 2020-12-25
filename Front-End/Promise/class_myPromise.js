@@ -277,7 +277,6 @@ class MyPromise {
   
       let len = promises.length
       let reject_count = 0 // 统计promises中Promise失败的数量
-      let resolve_count = 0 // 统计promises中Promise成功的数量
       let index = -1 // 记录第一个非Promsie的位置
       let errors = []
       for(let i = 0; i < len; i ++) {
@@ -300,7 +299,6 @@ class MyPromise {
         for(let j = 0; j < len; j ++) {
           if(promises[j] instanceof MyPromise) {
             promises[j].then(v => {
-              resolve_count ++
               resolve(v)
             },r => {
               reject_count ++
