@@ -22,5 +22,6 @@
 # flag
 ## 深入系列
 * 冴羽：https://github.com/mqyqingfeng/Blog
+  * JavaScript深入
+    * 从原型到原型链 
 * 然叔：https://github.com/su37josephxia/wheel-awesome
-### JavaScript深入之从原型到原型链
