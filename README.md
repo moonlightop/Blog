@@ -24,3 +24,4 @@
 * 然叔：https://github.com/su37josephxia/wheel-awesome
 ## 深入系列
 ### JavaScript深入之从原型到原型链 
+![image](file:///C:/Users/ASUS/Downloads/JS%E6%B7%B1%E5%85%A5%E7%B3%BB%E5%88%97.jpg)
