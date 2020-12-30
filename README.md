@@ -23,5 +23,8 @@
 * 冴羽：https://github.com/mqyqingfeng/Blog
 * 然叔：https://github.com/su37josephxia/wheel-awesome
 ## 深入系列
+
+* **`在此十分感谢冴羽的深入系列`**
+
 ### JavaScript深入之从原型到原型链 
-![image](blob:https://www.processon.com/78b46e51-3859-4c98-9802-d1116cf316b1)
+![image](C:\Users\ASUS\Desktop\from_prototype_to___proto__.jpg)
