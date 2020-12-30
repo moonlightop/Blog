@@ -1,7 +1,7 @@
 # Blog
 - Record the growth of learning
 ## Talk is cheap.Show me the code.
-![image](https://camo.githubusercontent.com/f63a8ff7f8967211999318104ed88115822453f84609944436c4ae2cebee7dc7/68747470733a2f2f70392d6a75656a696e2e62797465696d672e636f6d2f746f732d636e2d692d6b3375316662706663702f33353536626437386330303034643735393831383163303236353962333562387e74706c762d6b3375316662706663702d77617465726d61726b2e696d616765)
+![image](https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2773974549,1052009232&fm=26&gp=0.jpg)
 
 ## Front End
 - front end study note
@@ -27,4 +27,8 @@
 * **`在此十分感谢冴羽的深入系列`**
 
 ### JavaScript深入之从原型到原型链 
+<<<<<<< HEAD
 ![image](C:\Users\ASUS\Desktop\from_prototype_to___proto__.jpg)
+=======
+![image](file:///C:/Users/ASUS/Desktop/Snipaste_2020-12-30_16-19-00.jpg)
+>>>>>>> 689d4b344e0bec739cc6f0515b355ea1d547abdf
