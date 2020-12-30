@@ -24,4 +24,3 @@
 * 然叔：https://github.com/su37josephxia/wheel-awesome
 ## 深入系列
 ### JavaScript深入之从原型到原型链
-![image](https://github.com/moonlightop/Blog/blob/main/Deep_Leran_JS/from_prototype_to___proto__.jpg)
