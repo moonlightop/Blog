@@ -23,4 +23,4 @@
 * 冴羽：https://github.com/mqyqingfeng/Blog
 * 然叔：https://github.com/su37josephxia/wheel-awesome
 ## 深入系列
-### JavaScript深入之从原型到原型链
+### [JavaScript深入之从原型到原型链](https://github.com/moonlightop/Blog/blob/main/Deep_Leran_JS/%E4%BB%8E%E5%8E%9F%E5%9E%8B%E5%88%B0%E5%8E%9F%E5%9E%8B%E9%93%BE.md)
