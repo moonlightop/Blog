@@ -8,8 +8,8 @@
 ## 推荐  
 * [冴羽](https://github.com/mqyqingfeng/Blog)
 * [然叔](https://github.com/su37josephxia/wheel-awesome)
-* [yujiangshui]url(https://github.com/yujiangshui/A-Programmers-Guide-to-English)
-* [CyC2018]url(https://github.com/CyC2018/CS-Notes)
+* [yujiangshui](https://github.com/yujiangshui/A-Programmers-Guide-to-English)
+* [CyC2018](https://github.com/CyC2018/CS-Notes)
 ## 算法
 * 剑指offer
 ## 深入系列
