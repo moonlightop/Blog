@@ -13,10 +13,11 @@
 ## 算法
 * 剑指offer
 ## 深入系列
-- 1 . [JavaScript深入之从原型到原型链](https://github.com/moonlightop/Blog/blob/master/diveIntoJS/%E4%BB%8E%E5%8E%9F%E5%9E%8B%E5%88%B0%E5%8E%9F%E5%9E%8B%E9%93%BE.md)
-- 2 . JavaScript深入之静态作用域和动态作用域
+- 1 . [一图分析原型和原型链](https://github.com/moonlightop/Blog/blob/master/diveIntoJS/%E4%BB%8E%E5%8E%9F%E5%9E%8B%E5%88%B0%E5%8E%9F%E5%9E%8B%E9%93%BE.md)
+- 2 . 静态作用域和动态作用域
    - 动态作用域指，函数在调用时，才确定函数的作用域
    - JavaScript采用静态作用域，**函数在定义时，函数作用域就确定了** 
+   - 参考：[JavaScript深入之静态作用域和动态作用域](https://github.com/mqyqingfeng/Blog/issues/2)
 - 3 . [Javascript运行三部曲](https://github.com/moonlightop/Blog/blob/master/diveIntoJS/JS%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2.md)
 ## React系列
 * 研究中......
