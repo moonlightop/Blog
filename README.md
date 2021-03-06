@@ -3,7 +3,7 @@
 ![image](https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2773974549,1052009232&fm=26&gp=0.jpg)
 
 ## 读书笔记
-- [深入react和redux](https://github.com/moonlightop/Blog/blob/master/Read-Note/%E6%B7%B1%E5%85%A5React%E5%92%8CRedux.md)
+- [深入react和redux](https://github.com/moonlightop/Blog/tree/master/studyNotes/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAreact%E5%92%8Credux)
 
 ## 推荐  
 * [冴羽](https://github.com/mqyqingfeng/Blog)
