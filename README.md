@@ -1,11 +1,15 @@
+
+# Record the growth of learning
 ![image](https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2773974549,1052009232&fm=26&gp=0.jpg)
 
-# 读书笔记
+## 读书笔记
 - [深入react和redux](https://github.com/moonlightop/Blog/blob/master/Read-Note/%E6%B7%B1%E5%85%A5React%E5%92%8CRedux.md)
 
-# flag  
+## 推荐  
 * 冴羽：https://github.com/mqyqingfeng/Blog
 * 然叔：https://github.com/su37josephxia/wheel-awesome
+* yujiangshui: https://github.com/yujiangshui/A-Programmers-Guide-to-English
+* CyC2018: https://github.com/CyC2018/CS-Notes
 ## 算法
 * 剑指offer
 ## 深入系列
@@ -16,5 +20,3 @@
 - 3 . [Javascript运行三部曲](https://github.com/moonlightop/Blog/blob/master/Deep_Leran_JS/JS%E8%BF%90%E8%A1%8C%E4%B8%89%E9%83%A8%E6%9B%B2)
 ## React系列
 * 研究中......
-
-Record the growth of learning
