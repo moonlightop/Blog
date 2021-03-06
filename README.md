@@ -17,4 +17,4 @@
 ## React系列
 * 研究中......
 
-- Record the growth of learning
+Record the growth of learning
