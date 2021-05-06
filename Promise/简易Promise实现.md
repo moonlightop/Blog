@@ -1,4 +1,4 @@
-# step by step write Promise
+# 简易Promise实现
 ## Promise内部结构分析和实现
 * Promise的属性
   * PromiseState = ‘pending’
