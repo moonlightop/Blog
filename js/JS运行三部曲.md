@@ -242,7 +242,7 @@ a()
         let c;
     }
     console.log(c); // 同上
-
+```
 # 参考
 - [执行上下文（execution context）相关总结](https://www.jianshu.com/p/a0e8182a8895)
 - [深入理解JavaScript作用域和作用域链](https://segmentfault.com/a/1190000018513150)
