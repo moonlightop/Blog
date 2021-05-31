@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-05-31T04:34:16.308Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36" etag="xsnNE36q7sBCC6j5Mbu2" version="14.7.3" type="github">
+<mxfile host="app.diagrams.net" modified="2021-05-31T04:34:49.242Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36" etag="6UIQRl-dXYT7aiz1_bbt" version="14.7.3" type="github">
   <diagram id="BQ_XUraueQYO2NuGsHbD" name="第 1 页">
     <mxGraphModel dx="1501" dy="643" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -42,6 +42,9 @@
         </mxCell>
         <mxCell id="nIKiW4B2EEjBLXtnfSZA-18" value="CRLF" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
           <mxGeometry x="780" y="360" width="50" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nIKiW4B2EEjBLXtnfSZA-19" value="HTTP的格式" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry y="400" width="830" height="140" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
